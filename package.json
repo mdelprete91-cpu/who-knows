@@ -8,9 +8,10 @@
     "build:data": "node scripts/build-data.js"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "dependencies": {
+    "@vercel/blob": "^2.8.2",
     "express": "^4.19.2"
   }
 }

@@ -94,31 +94,46 @@ To load your own people:
 
 ---
 
-## Two ways it runs (same app, same UI)
+## How it runs (same app, same UI, auto-detected backend)
 
-The frontend auto-detects which backend is available:
+On load the frontend probes `/api/health` and picks a backend automatically:
 
 | Mode | When | Data source | Where edits are saved |
 | --- | --- | --- | --- |
-| **Server** | Local `npm start` | `data/db.json` (built from the CSV) | Shared file — everyone on that server sees the same data |
-| **Static** | Hosted as static files (e.g. Vercel) | bundled `public/data/seed.json` | Each visitor's own browser (`localStorage`) |
+| **Local server** | `npm start` | `data/db.json` (built from the CSV) | Shared file — everyone on that server |
+| **Hosted (serverless)** | Deployed on Vercel | bundled `public/data/seed.json` | **Shared** — a Vercel Blob store, visible to all visitors |
+| **Static fallback** | Static hosting with no `/api` | `public/data/seed.json` | Each visitor's own browser (`localStorage`) |
 
-So locally you get a shared, file-backed directory; the free hosted link is a
-per-visitor demo. (Want shared data on the hosted version too? That needs a real
-database — easy to add later with e.g. Vercel KV/Postgres.)
+The local server and the Vercel deployment both give **shared** persistence
+(edits are visible to everyone). The static fallback is only used if the app is
+served as plain files with no backend.
 
 ## Deploying a public link (Vercel)
 
-The repo is already configured for Vercel (`vercel.json` serves the `public/`
-folder as a static site and regenerates `public/data/seed.json` at build time).
+The repo is already configured for Vercel:
+
+- `public/` is served as the static site; `public/data/seed.json` is regenerated
+  at build time (`vercel.json` → `npm run build:data`).
+- `api/` holds serverless functions (auth, people, search) that read/write the
+  shared profile data in a **Vercel Blob** store.
+
+First-time setup:
 
 ```bash
-npm i -g vercel      # if you don't have the CLI
-vercel --prod        # from the project root; follow the prompts
+npm i -g vercel                      # if you don't have the CLI
+vercel link                          # link this folder to a Vercel project
+vercel blob create-store who-knows   # create a Blob store and link it (adds BLOB_READ_WRITE_TOKEN)
+vercel --prod                        # deploy; prints the public URL
 ```
 
-That prints a public URL. Pushing to the connected GitHub repo also triggers a
-deploy automatically once the project is linked in the Vercel dashboard.
+After the project is connected to the GitHub repo in the Vercel dashboard, every
+push to `main` deploys automatically. The serverless functions read
+`BLOB_READ_WRITE_TOKEN` from the project's environment variables (set when the
+Blob store is linked).
+
+> Shared edits use a single JSON snapshot in Blob with last-write-wins. That's
+> ideal for a demo; for heavy concurrent editing you'd switch the `api/_lib/store.js`
+> adapter to a transactional store (Vercel KV or Postgres) — the rest is unchanged.
 
 ## Project structure
 
@@ -137,12 +152,18 @@ who-knows/
 │   ├── auth.js              # demo login + sessions
 │   ├── search.js            # re-exports the shared engine
 │   └── routes/              # auth / people / search endpoints
+├── api/                     # Vercel serverless functions (hosted backend)
+│   ├── health.js            # backend probe
+│   ├── search.js
+│   ├── auth/                # login / logout / me
+│   ├── people/              # list + update-own-profile
+│   └── _lib/                # store (Vercel Blob), people merge, auth
 ├── public/
 │   ├── index.html
 │   ├── css/styles.css
-│   ├── data/seed.json       # bundled data for static mode
+│   ├── data/seed.json       # bundled data (shared by all three modes)
 │   └── js/                  # engine, api, auth, orgchart, profile, search, app
-├── vercel.json              # static deploy config
+├── vercel.json              # Vercel build + static output config
 └── package.json
 ```
 

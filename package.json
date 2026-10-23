@@ -1,0 +1,16 @@
+{
+  "name": "who-knows",
+  "version": "1.0.0",
+  "description": "Who Knows — an internal tool to explore the org chart and find the right colleague for any topic.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "build:data": "node scripts/build-data.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

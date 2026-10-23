@@ -1,0 +1,36 @@
+first_name,last_name,job_role,area,manager,location,email
+Elena,Fontana,CEO,Executive,,Milan,elena.fontana@northwindlabs.com
+Marco,Bianchi,VP Product,Product,Elena Fontana,Milan,marco.bianchi@northwindlabs.com
+Sofia,Greco,VP Engineering,Engineering,Elena Fontana,Turin,sofia.greco@northwindlabs.com
+Luca,Romano,Head of Design,Design,Elena Fontana,Milan,luca.romano@northwindlabs.com
+Giulia,Costa,VP Operations,Operations,Elena Fontana,Rome,giulia.costa@northwindlabs.com
+Davide,Ferrari,Head of Partnerships,Partnerships,Elena Fontana,London,davide.ferrari@northwindlabs.com
+Chiara,Marino,Chief of Staff,Operations,Elena Fontana,Milan,chiara.marino@northwindlabs.com
+Anna,Rossi,Senior Product Manager,Product,Marco Bianchi,Milan,anna.rossi@northwindlabs.com
+Paolo,Conti,Product Manager,Product,Marco Bianchi,Remote,paolo.conti@northwindlabs.com
+Francesca,Galli,Product Manager,Product,Marco Bianchi,Rome,francesca.galli@northwindlabs.com
+Matteo,Ricci,Associate Product Manager,Product,Anna Rossi,Milan,matteo.ricci@northwindlabs.com
+Valentina,Rizzo,Product Analyst,Product,Marco Bianchi,Turin,valentina.rizzo@northwindlabs.com
+Alessandro,Moretti,Engineering Manager,Engineering,Sofia Greco,Turin,alessandro.moretti@northwindlabs.com
+Giorgio,Barbieri,Engineering Manager,Engineering,Sofia Greco,Berlin,giorgio.barbieri@northwindlabs.com
+Simone,Fabbri,Senior Backend Engineer,Engineering,Alessandro Moretti,Remote,simone.fabbri@northwindlabs.com
+Martina,Gatti,Backend Engineer,Engineering,Alessandro Moretti,Turin,martina.gatti@northwindlabs.com
+Lorenzo,Mariani,Frontend Engineer,Engineering,Alessandro Moretti,Milan,lorenzo.mariani@northwindlabs.com
+Federico,Rinaldi,Full-stack Engineer,Engineering,Alessandro Moretti,Remote,federico.rinaldi@northwindlabs.com
+Elisa,Caruso,Senior Frontend Engineer,Engineering,Giorgio Barbieri,Berlin,elisa.caruso@northwindlabs.com
+Andrea,Ferrara,DevOps Engineer,Engineering,Giorgio Barbieri,Remote,andrea.ferrara@northwindlabs.com
+Giacomo,Lombardi,Data Engineer,Engineering,Giorgio Barbieri,Turin,giacomo.lombardi@northwindlabs.com
+Beatrice,Colombo,QA Engineer,Engineering,Giorgio Barbieri,Rome,beatrice.colombo@northwindlabs.com
+Camilla,Esposito,Senior Product Designer,Design,Luca Romano,Milan,camilla.esposito@northwindlabs.com
+Tommaso,Bruno,Product Designer,Design,Luca Romano,Remote,tommaso.bruno@northwindlabs.com
+Sara,De Luca,UX Researcher,Design,Luca Romano,Rome,sara.deluca@northwindlabs.com
+Nicolo,Villa,UI Designer,Design,Luca Romano,Milan,nicolo.villa@northwindlabs.com
+Roberta,Serra,Operations Manager,Operations,Giulia Costa,Rome,roberta.serra@northwindlabs.com
+Stefano,Testa,People Ops Lead,Operations,Giulia Costa,Milan,stefano.testa@northwindlabs.com
+Alice,Monti,Finance Analyst,Operations,Giulia Costa,Rome,alice.monti@northwindlabs.com
+Emanuele,Gentile,IT Support Specialist,Operations,Giulia Costa,Remote,emanuele.gentile@northwindlabs.com
+Laura,Santoro,Partnerships Manager,Partnerships,Davide Ferrari,London,laura.santoro@northwindlabs.com
+Riccardo,Longo,Business Development Manager,Partnerships,Davide Ferrari,Milan,riccardo.longo@northwindlabs.com
+Silvia,Marchetti,Partnerships Associate,Partnerships,Davide Ferrari,London,silvia.marchetti@northwindlabs.com
+Antonio,De Santis,Account Manager,Partnerships,Davide Ferrari,Rome,antonio.desantis@northwindlabs.com
+Claudia,Ferretti,Partner Marketing Manager,Partnerships,Davide Ferrari,Berlin,claudia.ferretti@northwindlabs.com
